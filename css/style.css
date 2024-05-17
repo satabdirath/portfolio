@@ -1116,3 +1116,25 @@ a:focus {
     width: 100%; /* Adjust as needed */
     height: auto; /* This will maintain the aspect ratio */
 }
+
+.blog-slider-item {
+    background: #f9f9f9;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.blog-text h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog-text p {
+    margin-bottom: 10px;
+}
+
+.blog-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
