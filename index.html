@@ -568,42 +568,7 @@
 </script>
             
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function() {
-    const mediumArticleUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@satabdirath2000";
 
-    $.ajax({
-        url: mediumArticleUrl,
-        method: 'GET',
-        dataType: 'json',
-        success: function(response) {
-            if(response.status == 'ok') {
-                let blogPosts = response.items;
-                let blogSlider = $('#blog-slider');
-                
-                blogPosts.forEach(post => {
-                    let blogItem = `
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img class="card-img-top" src="${post.thumbnail}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">${post.title}</h5>
-                                    <p class="card-text">${post.description}</p>
-                                    <a href="${post.link}" target="_blank" class="btn btn-primary">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    blogSlider.append(blogItem);
-                });
-            }
-        },
-        error: function() {
-            console.log('Failed to fetch Medium blog posts');
-        }
-    });
-});
-</script>
 
 
         
