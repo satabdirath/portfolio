@@ -383,7 +383,21 @@
                     </div>
                 </div>
                 <!-- Portfolio Start -->
-
+<div class="review" id="review">
+                    <div class="content-inner">
+                        <div class="content-header">
+                            <h2>Review</h2>
+                        </div>
+                 
+                     
+                                  <div class="row align-items-center blog-slider" id="blog-slider">
+                                             <div class="col-md-12">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Review Start -->
                <!---- <div class="review" id="review">
@@ -555,6 +569,44 @@
         });
     });
 </script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    const mediumArticleUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@satabdirath2000";
+
+    $.ajax({
+        url: mediumArticleUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if(response.status == 'ok') {
+                let blogPosts = response.items;
+                let blogSlider = $('#blog-slider');
+                
+                blogPosts.forEach(post => {
+                    let blogItem = `
+                        <div class="col-md-12">
+                            <div class="blog-slider-item">
+                                <div class="blog-text">
+                                    <h3>${post.title}</h3>
+                                    <p>${new Date(post.pubDate).toLocaleDateString()}</p>
+                                    <p>${post.description}</p>
+                                    <a href="${post.link}" target="_blank">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    blogSlider.append(blogItem);
+                });
+            }
+        },
+        error: function() {
+            console.log('Failed to fetch Medium blog posts');
+        }
+    });
+});
+</script>
+
         
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
